@@ -1,28 +1,32 @@
 package ru.netologe.tournament;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 
 public class Game {
+
     List<Player> players = new ArrayList<>();
 
     // метод регистрации игрока
     public void register(Player player) {
-        players.add(player);
+       players.add(player);
     }
 
     public int round(String playerName1, String playerName2) {
         Player player1 = null;
         Player player2 = null;
         for (Player player : players) {
-
-            if (player.getName().equals(playerName1)) {
-                player1 = player;
-            }
-            if (player.getName().equals(playerName2)) {
+           if (player.getName().equals(playerName1)){
+               player1 = player;
+           }
+            if (player.getName().equals(playerName2)){
                 player2 = player;
             }
         }
+
         if (player1 == null) {
             throw new NotRegisteredException(playerName1);
         }
